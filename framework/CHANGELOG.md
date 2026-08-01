@@ -28,6 +28,7 @@ Yii Framework 2 Change Log
 - Enh #20988, #21040: Add generics to `yii\db\Connection` and `yii\db\Schema` so `getSchema()` and `getQueryBuilder()` infer driver-specific types (terabytesoftw, mspirkov)
 - Bug #20994: Fix `@var` annotations for `BlameableBehavior` properties (mspirkov)
 - Enh #20990: Show created migration file path on migrate create CLI command (flaviovs)
+- Bug #21045: Fix union types in PHPDoc annotations (mspirkov)
 
 
 2.0.55 May 09, 2026
