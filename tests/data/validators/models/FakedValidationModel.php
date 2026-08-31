@@ -36,6 +36,7 @@ use yii\base\Model;
  * @property mixed $attrD
  * @property mixed $attr_image
  * @property mixed $attr_images
+ * @property-read array|null $inlineValArgs An array of arguments in the last call or null if method never been called.
  */
 class FakedValidationModel extends Model
 {

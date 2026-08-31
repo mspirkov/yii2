@@ -100,6 +100,7 @@ use yii\helpers\ArrayHelper;
  * @property-write bool $resolveArrays Whether to attempt to resolve elements in array dependencies.
  * @property-write array $singletons Array of singleton definitions. See [[setDefinitions()]] for allowed
  * formats of array.
+ * @property-write string $singleton Class name, interface name or alias name.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0

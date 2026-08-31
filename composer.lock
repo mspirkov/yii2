@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3de7daa9868f31232aaec7a680f1267",
+    "content-hash": "d7be8122dc3da7218cfaaab2ec8e4a5f",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -531,6 +531,68 @@
             "time": "2026-01-05T06:47:08+00:00"
         },
         {
+            "name": "mspirkov/yii2-rector",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mspirkov/yii2-rector.git",
+                "reference": "9441c4562f17d7b0778b0daf428b7fa1b164d7c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mspirkov/yii2-rector/zipball/9441c4562f17d7b0778b0daf428b7fa1b164d7c8",
+                "reference": "9441c4562f17d7b0778b0daf428b7fa1b164d7c8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4",
+                "rector/rector": "^2.6",
+                "yiisoft/yii2": "^2.0.53"
+            },
+            "require-dev": {
+                "ergebnis/phpstan-rules": "^2.13",
+                "friendsofphp/php-cs-fixer": "^3.89",
+                "kubawerlos/php-cs-fixer-custom-fixers": "^3.37",
+                "phpstan/phpstan": "^2.2",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^9.6",
+                "rector/rector": "^2.2",
+                "shipmonk/phpstan-rules": "^4.2",
+                "spaze/phpstan-disallowed-calls": "^4.7"
+            },
+            "suggest": {
+                "mspirkov/yii2-phpstan-rules": "for better error detection in Yii2 projects"
+            },
+            "type": "rector-extension",
+            "autoload": {
+                "psr-4": {
+                    "MSpirkov\\Yii2\\Rector\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksim Sprikov",
+                    "email": "spirkov.2001@mail.ru"
+                }
+            ],
+            "description": "A set of Rector rules for projects using the Yii2 framework",
+            "keywords": [
+                "rector",
+                "yii",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/mspirkov/yii2-rector/issues",
+                "source": "https://github.com/mspirkov/yii2-rector/tree/0.1.0"
+            },
+            "time": "2026-08-31T17:21:51+00:00"
+        },
+        {
             "name": "myclabs/deep-copy",
             "version": "1.13.4",
             "source": {
@@ -768,11 +830,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.7",
+            "version": "2.2.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/692db47b9dddb0487934e5236e77d48594aef921",
-                "reference": "692db47b9dddb0487934e5236e77d48594aef921",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/36d1509c998b0602811824143526b4a9ee2774e7",
+                "reference": "36d1509c998b0602811824143526b4a9ee2774e7",
                 "shasum": ""
             },
             "require": {
@@ -828,7 +890,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-07-29T17:39:32+00:00"
+            "time": "2026-08-30T12:46:16+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
@@ -1317,6 +1379,63 @@
                 }
             ],
             "time": "2026-01-27T05:45:00+00:00"
+        },
+        {
+            "name": "rector/rector",
+            "version": "2.6.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/rector.git",
+                "reference": "f8686605798c755456327a3597201c3b5be76294"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f8686605798c755456327a3597201c3b5be76294",
+                "reference": "f8686605798c755456327a3597201c3b5be76294",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0",
+                "phpstan/phpstan": "^2.2.10"
+            },
+            "conflict": {
+                "rector/rector-doctrine": "*",
+                "rector/rector-downgrade-php": "*",
+                "rector/rector-phpunit": "*",
+                "rector/rector-symfony": "*"
+            },
+            "bin": [
+                "bin/rector"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Instant Upgrade and Automated Refactoring of any PHP code",
+            "homepage": "https://getrector.com/",
+            "keywords": [
+                "automation",
+                "dev",
+                "migration",
+                "refactoring"
+            ],
+            "support": {
+                "issues": "https://github.com/rectorphp/rector/issues",
+                "source": "https://github.com/rectorphp/rector/tree/2.6.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-08-30T22:02:04+00:00"
         },
         {
             "name": "sebastian/cli-parser",

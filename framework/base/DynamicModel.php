@@ -49,6 +49,7 @@ use yii\validators\Validator;
  *     ->validate();
  * ```
  *
+ * @property-write string[] $attributeLabels Attribute labels.
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */

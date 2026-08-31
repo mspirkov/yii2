@@ -594,8 +594,6 @@ class ComponentTest extends TestCase
  * @property-read callable $execute
  * @property-read array<array-key, mixed> $items
  * @property-write mixed $writeOnly
- *
- * We use `mixin` here to avoid PHPStan errors when testing `attachBehavior`.
  * @mixin NewBehavior
  */
 class NewComponent extends Component
@@ -652,13 +650,14 @@ class NewComponent extends Component
         $this->trigger('click', new Event());
     }
 
-    public function setWriteOnly()
+    public function setWriteOnly($value)
     {
     }
 }
 
 /**
  * @extends Behavior<NewComponent>
+ * @property mixed $p2
  */
 class NewBehavior extends Behavior
 {

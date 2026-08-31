@@ -24,8 +24,10 @@ use yii\di\ServiceLocator;
  *
  * For more details and usage information on Module, see the [guide article on modules](guide:structure-modules).
  *
- * @property-write array $aliases List of path aliases to be defined. The array keys are alias names (must
- * start with `@`) and the array values are the corresponding paths or aliases. For example,
+ * @property-write array $aliases List of path aliases to be defined. The array keys are alias names
+ * (must start with `@`) and the array values are the corresponding paths or aliases.
+ * For example,
+ *
  * ```
  * [
  *     '@models' => '@app/models', // an existing alias
@@ -38,8 +40,10 @@ use yii\di\ServiceLocator;
  * @property array $modules The modules (indexed by their IDs).
  * @property-read string $uniqueId The unique ID of the module.
  * @property-read string $version The version of this module.
- * @property-write string|callable|null $version The version of this module. Version can be specified as a PHP
- * callback, which can accept module instance as an argument and should return the actual version. For example:
+ * @property-write string|callable|null $version The version of this module.
+ * Version can be specified as a PHP callback, which can accept module instance as an argument and should
+ * return the actual version. For example:
+ *
  * ```
  * function (Module $module) {
  *     //return string
