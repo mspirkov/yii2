@@ -1,4 +1,4 @@
-name: static analysis
+name: rector
 
 permissions:
   contents: read
@@ -33,21 +33,33 @@ on:
 
   push: *ignore-paths
 
-jobs:
-  phpstan:
-    uses: yiisoft/yii2-actions/.github/workflows/phpstan.yml@5bf8a8707d3195ec35a777dcf8359c6ff904acdc # master
-    with:
-      composer-root-version: 2.0.x-dev
-      configuration: phpstan.dist.neon
-      concurrency-group: phpstan-${{ github.ref }}
-      extensions: apcu, curl, dom, imagick, intl, mbstring, mcrypt, memcached
-      php-version: '["8.5"]'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
-  phpstan-7x:
-    uses: yiisoft/yii2-actions/.github/workflows/phpstan.yml@5bf8a8707d3195ec35a777dcf8359c6ff904acdc # master
-    with:
-      composer-root-version: 2.0.x-dev
-      configuration: phpstan-7x.dist.neon
-      concurrency-group: phpstan7x-${{ github.ref }}
-      extensions: apc, curl, dom, imagick, intl, mbstring, mcrypt, memcached
-      php-version: '["7.4"]'
+jobs:
+  rector:
+    name: PHP ${{ matrix.php-version }}-${{ matrix.os }}
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+          os: [ubuntu-latest]
+          php-version: ['8.5']
+
+    steps:
+      - name: Checkout.
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup PHP Environment.
+        uses: ./.github/actions/php-setup
+        with:
+          coverage-driver: none
+          php-version: ${{ matrix.php-version }}
+
+      - name: Run Rector.
+        run: vendor/bin/rector process --dry-run
