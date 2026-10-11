@@ -1584,7 +1584,7 @@ abstract class ActiveRecordTest extends DatabaseTestCase
             'order_id' => $order->id,
             'item_id' => 3,
             'quantity' => 1,
-            'subtotal' => 10.0,
+            'subtotal' => '10.0',
         ]);
         $order->link('orderItems2', $orderItem);
         $this->assertTrue(isset($order->orderItems2['3']));
@@ -1600,7 +1600,7 @@ abstract class ActiveRecordTest extends DatabaseTestCase
             'order_id' => $order->id,
             'item_id' => 3,
             'quantity' => 1,
-            'subtotal' => 10.0,
+            'subtotal' => '10.0',
         ]);
         $order->link('orderItems3', $orderItem);
         $this->assertTrue(isset($order->orderItems3['1_3']));
@@ -2232,6 +2232,11 @@ class LabelTestModel2 extends \yii\db\ActiveRecord
     }
 }
 
+/**
+ * @property string $attr1
+ * @property string $attr2
+ * @property string $attr3
+ */
 class LabelTestModel3 extends \yii\db\ActiveRecord
 {
     public function attributes()

@@ -9,6 +9,7 @@
 namespace yiiunit\framework\widgets;
 
 use yii\data\ActiveDataProvider;
+use yii\data\Sort;
 use yii\widgets\LinkSorter;
 use yii\widgets\ListView;
 use yiiunit\data\ar\ActiveRecord;
@@ -95,10 +96,10 @@ class LinkSorterTest extends DatabaseTestCase
         $initTriggered = false;
         new LinkSorter(
             [
-                'sort' => [
+                'sort' => new Sort([
                     'attributes' => ['total'],
                     'route' => 'site/index',
-                ],
+                ]),
                 'on init' => function () use (&$initTriggered) {
                     $initTriggered = true;
                 }

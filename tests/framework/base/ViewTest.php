@@ -105,6 +105,7 @@ PHP
             ]
         ]);
 
+        // @phpstan-ignore mspirkovYii2Rules.viewRenderExistenceValidation (The "@testviews" alias points to a temporary directory that is created at runtime)
         $this->assertSame($subViewContent, $view->render('@testviews/base'));
     }
 

@@ -30,6 +30,7 @@ class RadiobuttonColumnTest extends TestCase
         $this->expectExceptionMessage('The "name" property must be set.');
 
         new RadioButtonColumn([
+            // @phpstan-ignore mspirkovYii2Rules.baseObjectInstantiationValidation (We intentionally use incorrect data here to test its processing)
             'name' => null,
         ]);
     }

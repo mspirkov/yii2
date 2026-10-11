@@ -689,6 +689,12 @@ class ComplexModel1 extends Model
     }
 }
 
+/**
+ * @property mixed $id
+ * @property mixed $name
+ * @property mixed $description
+ * @property mixed $is_disabled
+ */
 class ComplexModel2 extends Model
 {
     public function rules()

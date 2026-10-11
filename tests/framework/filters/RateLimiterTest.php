@@ -15,6 +15,7 @@ use yii\web\Response;
 use yii\web\User;
 use yiiunit\framework\filters\stubs\ExposedLogger;
 use yiiunit\framework\filters\stubs\RateLimit;
+use yiiunit\framework\filters\stubs\UserIdentity;
 use yiiunit\TestCase;
 
 /**
@@ -39,9 +40,10 @@ class RateLimiterTest extends TestCase
 
     public function testInitFilledRequest(): void
     {
-        $rateLimiter = new RateLimiter(['request' => 'Request']);
+        $request = new Request();
+        $rateLimiter = new RateLimiter(['request' => $request]);
 
-        $this->assertEquals('Request', $rateLimiter->request);
+        $this->assertSame($request, $rateLimiter->request);
     }
 
     public function testInitNotFilledRequest(): void
@@ -53,9 +55,10 @@ class RateLimiterTest extends TestCase
 
     public function testInitFilledResponse(): void
     {
-        $rateLimiter = new RateLimiter(['response' => 'Response']);
+        $response = new Response();
+        $rateLimiter = new RateLimiter(['response' => $response]);
 
-        $this->assertEquals('Response', $rateLimiter->response);
+        $this->assertSame($response, $rateLimiter->response);
     }
 
     public function testInitNotFilledResponse(): void
@@ -81,7 +84,7 @@ class RateLimiterTest extends TestCase
 
     public function testBeforeActionUserNotInstanceOfRateLimitInterface(): void
     {
-        $rateLimiter = new RateLimiter(['user' => 'User']);
+        $rateLimiter = new RateLimiter(['user' => new UserIdentity()]);
 
         $result = $rateLimiter->beforeAction('test');
 
@@ -94,7 +97,7 @@ class RateLimiterTest extends TestCase
 
     public function testBeforeActionEmptyUser(): void
     {
-        $user = new User(['identityClass' => RateLimit::class]);
+        $user = new User(['identityClass' => UserIdentity::class]);
         Yii::$app->set('user', $user);
         $rateLimiter = new RateLimiter();
 
@@ -159,7 +162,7 @@ class RateLimiterTest extends TestCase
     {
         $rateLimiter = new RateLimiter();
         $rateLimiter->user = function ($action) {
-            return new User(['identityClass' => RateLimit::class]);
+            return new User(['identityClass' => UserIdentity::class]);
         };
         $rateLimiter->beforeAction('test');
 

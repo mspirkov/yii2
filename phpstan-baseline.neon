@@ -1,6 +1,18 @@
 parameters:
 	ignoreErrors:
 		-
+			message: '#^Widget option "view" for yii\\widgets\\Block must be yii\\web\\View, \$this\(yii\\base\\View\) given\.$#'
+			identifier: mspirkovYii2Rules.widgetPropertiesValidation
+			count: 1
+			path: framework/base/View.php
+
+		-
+			message: '#^Widget option "view" for yii\\widgets\\ContentDecorator must be yii\\web\\View, \$this\(yii\\base\\View\) given\.$#'
+			identifier: mspirkovYii2Rules.widgetPropertiesValidation
+			count: 1
+			path: framework/base/View.php
+
+		-
 			message: '#^Call to an undefined method T of yii\\base\\Model \= yii\\base\\Model\:\:canSetOldAttribute\(\)\.$#'
 			identifier: method.notFound
 			count: 1
@@ -480,8 +492,3 @@ parameters:
 			count: 1
 			path: framework/helpers/BaseFileHelper.php
 
-		-
-			message: '#^Access to an undefined property yiiunit\\framework\\base\\NewComponent\:\:\$as f\.$#'
-			identifier: property.notFound
-			count: 1
-			path: tests/framework/base/ComponentTest.php
