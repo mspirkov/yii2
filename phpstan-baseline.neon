@@ -2,13 +2,13 @@ parameters:
 	ignoreErrors:
 		-
 			message: '#^Widget option "view" for yii\\widgets\\Block must be yii\\web\\View, \$this\(yii\\base\\View\) given\.$#'
-			identifier: mspirkovYii2Rules.widgetPropertiesValidation
+			identifier: mspirkovYii2.widgetPropertiesValidation
 			count: 1
 			path: framework/base/View.php
 
 		-
 			message: '#^Widget option "view" for yii\\widgets\\ContentDecorator must be yii\\web\\View, \$this\(yii\\base\\View\) given\.$#'
-			identifier: mspirkovYii2Rules.widgetPropertiesValidation
+			identifier: mspirkovYii2.widgetPropertiesValidation
 			count: 1
 			path: framework/base/View.php
 

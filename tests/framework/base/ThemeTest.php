@@ -88,7 +88,7 @@ class ThemeTest extends TestCase
 
     public function testApplyToEmptyBasePath(): void
     {
-        // @phpstan-ignore mspirkovYii2Rules.baseObjectInstantiationValidation (We intentionally use incorrect data here to test its processing)
+        // @phpstan-ignore mspirkovYii2.baseObjectInstantiationValidation (We intentionally use incorrect data here to test its processing)
         $theme = new Theme(['basePath' => null]);
 
         $this->expectException('yii\base\InvalidConfigException');

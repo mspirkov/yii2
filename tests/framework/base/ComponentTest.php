@@ -33,10 +33,7 @@ function globalEventHandler2($event)
  */
 class ComponentTest extends TestCase
 {
-    /**
-     * @var NewComponent|null
-     */
-    protected $component;
+    private NewComponent $component;
 
     protected function setUp(): void
     {
@@ -48,7 +45,6 @@ class ComponentTest extends TestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        $this->component = null;
         gc_enable();
         gc_collect_cycles();
     }
@@ -354,6 +350,7 @@ class ComponentTest extends TestCase
         $component->{'as b'} = ['class' => NewBehavior::class];
         $this->assertInstanceOf(NewBehavior::class, $component->getBehavior('b'));
         $this->assertTrue($component->hasProperty('p'));
+        // @phpstan-ignore method.notFound (PHPStan does not track behaviors attached via the "as" property syntax.)
         $component->test();
         $this->assertTrue($component->behaviorCalled);
 
@@ -381,6 +378,7 @@ class ComponentTest extends TestCase
         }
 
         $component = new NewComponent();
+        // @phpstan-ignore property.notFound (Since the property contains a space in its name, the error cannot be resolved using PHPDoc.)
         $component->{'as f'} = function () {
             return new NewBehavior();
         };
@@ -438,6 +436,7 @@ class ComponentTest extends TestCase
     {
         $this->expectException('\yii\base\InvalidCallException');
         $this->expectExceptionMessage('Setting read-only property: yiiunit\framework\base\NewComponent::object');
+        // @phpstan-ignore assign.propertyReadOnly (We intentionally assign a value to a read-only property to test the class's behavior in this case)
         $this->component->object = 'z';
     }
 
@@ -470,6 +469,7 @@ class ComponentTest extends TestCase
     {
         $this->expectException('\yii\base\InvalidCallException');
         $this->expectExceptionMessage('Getting write-only property: yiiunit\framework\base\NewComponent::writeOnly');
+        // @phpstan-ignore property.writeOnly (We deliberately obtain the value of a property that is write‑only in order to test the class’s behavior in this case.)
         $this->component->writeOnly;
     }
 
@@ -594,9 +594,6 @@ class ComponentTest extends TestCase
  * @property-read callable $execute
  * @property-read array<array-key, mixed> $items
  * @property-write mixed $writeOnly
- *
- * @mixin NewBehavior
- * We use `mixin` here to avoid PHPStan errors when testing `attachBehavior`.
  */
 class NewComponent extends Component
 {

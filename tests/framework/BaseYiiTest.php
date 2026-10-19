@@ -120,7 +120,7 @@ class BaseYiiTest extends TestCase
         $this->expectException('yii\base\InvalidConfigException');
         $this->expectExceptionMessage('Object configuration must be an array containing a "class" or "__class" element.');
 
-        // @phpstan-ignore mspirkovYii2Rules.yiiCreateObjectValidation (We intentionally pass a configuration without "class" to test that an exception is thrown)
+        // @phpstan-ignore mspirkovYii2.yiiCreateObjectValidation (We intentionally pass a configuration without "class" to test that an exception is thrown)
         Yii::createObject([]);
     }
 

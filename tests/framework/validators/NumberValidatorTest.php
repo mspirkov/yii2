@@ -576,9 +576,9 @@ class NumberValidatorTest extends TestCase
         $this->assertStringContainsString('"max":10', $js);
 
         $val = new NumberValidator([
-            // @phpstan-ignore mspirkovYii2Rules.baseObjectInstantiationValidation (We intentionally use string values here to test their processing)
+            // @phpstan-ignore mspirkovYii2.baseObjectInstantiationValidation (We intentionally use string values here to test their processing)
             'min' => '5',
-            // @phpstan-ignore mspirkovYii2Rules.baseObjectInstantiationValidation (We intentionally use string values here to test their processing)
+            // @phpstan-ignore mspirkovYii2.baseObjectInstantiationValidation (We intentionally use string values here to test their processing)
             'max' => '10',
         ]);
         $model = new FakedValidationModel();
@@ -596,9 +596,9 @@ class NumberValidatorTest extends TestCase
         $this->assertStringContainsString('"max":13.37', $js);
 
         $val = new NumberValidator([
-            // @phpstan-ignore mspirkovYii2Rules.baseObjectInstantiationValidation (We intentionally use string values here to test their processing)
+            // @phpstan-ignore mspirkovYii2.baseObjectInstantiationValidation (We intentionally use string values here to test their processing)
             'min' => '5.65',
-            // @phpstan-ignore mspirkovYii2Rules.baseObjectInstantiationValidation (We intentionally use string values here to test their processing)
+            // @phpstan-ignore mspirkovYii2.baseObjectInstantiationValidation (We intentionally use string values here to test their processing)
             'max' => '13.37',
         ]);
         $model = new FakedValidationModel();
